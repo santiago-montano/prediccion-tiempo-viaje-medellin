@@ -4,7 +4,7 @@ import pandas as pd
 import joblib
 
 # Cargar paquete del modelo
-paquete = joblib.load("modelo_tiempo_viaje_flaml.pkl")
+paquete = joblib.load("modelo_tiempo_viaje_xgboost.pkl")
 
 modelo = paquete["modelo"]
 preprocesador = paquete["preprocesador"]
@@ -17,6 +17,7 @@ st.set_page_config(
 )
 
 st.title("Predicción del tiempo de viaje en Medellín")
+
 st.write(
     "Aplicación predictiva basada en Machine Learning para estimar el tiempo de viaje "
     "en minutos a partir del mes, día de la semana, hora, punto de inicio y punto final del tramo."
@@ -48,4 +49,4 @@ if st.button("Predecir tiempo de viaje"):
     st.dataframe(entrada)
 
 st.markdown("---")
-st.caption("Modelo final: FLAML AutoML - XGBoost")
+st.caption("Modelo final: XGBoost seleccionado mediante FLAML AutoML")
